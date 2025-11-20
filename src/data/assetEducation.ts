@@ -75,16 +75,17 @@ export const assetEducationData: Record<string, AssetEducation> = {
     ],
     keyMetrics: ['FFO (Funds From Operations)', 'Occupancy Rate', 'Cap Rate']
   },
-  'International ETF': {
-    industry: 'Global Equity Fund',
-    explanation: 'Invests in stock markets outside the United States, providing global diversification and emerging market growth opportunities.',
+  'Inverse ETF': {
+    industry: 'Leveraged/Inverse ETF',
+    explanation: 'An inverse ETF is designed to profit from a decline in the value of an underlying benchmark or index. These funds use derivatives to achieve returns that are opposite to the daily performance of the target index. Useful for hedging or speculation during market downturns.',
     financialFactors: [
-      'Currency Risk: Foreign currency fluctuations vs. USD',
-      'Geopolitics: International relations and political stability',
-      'Economic Growth: GDP growth rate differences by country',
-      'Regulatory Environment: Different policies and regulations per country'
+      'Market Direction: Profits when the underlying index falls',
+      'Daily Rebalancing: Performance can deviate over longer periods due to compounding',
+      'Volatility Risk: High volatility can erode returns over time',
+      'Market Timing: Requires accurate prediction of short-term market movements',
+      'Derivative Exposure: Uses swaps and futures contracts'
     ],
-    keyMetrics: ['Regional Allocation', 'Currency Exposure', 'Expense Ratio']
+    keyMetrics: ['Correlation to Index', 'Daily Tracking Error', 'Expense Ratio', 'Leverage Ratio']
   },
   'Gold ETF': {
     industry: 'Precious Metals Commodity Fund',
@@ -236,17 +237,17 @@ export const assetEducationData: Record<string, AssetEducation> = {
     ],
     keyMetrics: ['Market Cap Ranking', 'Circulating Supply', 'Community Activity']
   },
-  'DeFi Token': {
-    industry: 'Decentralized Finance Token',
-    explanation: 'Governance and utility tokens of DeFi protocols. Represents stakes in decentralized lending, exchanges, stablecoins, and other financial services.',
+  'Gold': {
+    industry: 'Precious Metals / Commodities',
+    explanation: 'Physical gold or gold certificates. Gold is a traditional store of value and safe-haven asset that has been used as money for thousands of years. It typically maintains purchasing power during economic uncertainty and inflation.',
     financialFactors: [
-      'Protocol Revenue: Actual fees and income generated',
-      'TVL Changes: Amount of assets locked in the protocol',
-      'Smart Contract Risk: Code vulnerabilities and hacker attacks',
-      'Regulatory Pressure: Government attitude towards DeFi regulation',
-      'Yield Opportunities: APY from mining and staking'
+      'Safe-Haven Demand: Investors buy gold during geopolitical and economic uncertainty',
+      'Dollar Strength: Inverse relationship - weak dollar typically boosts gold prices',
+      'Real Interest Rates: Gold performs well when real rates are negative',
+      'Central Bank Reserves: Central bank gold purchasing and reserve policies',
+      'Inflation Expectations: Gold historically preserves value against inflation'
     ],
-    keyMetrics: ['TVL', 'Protocol Revenue', 'Token Distribution', 'User Count']
+    keyMetrics: ['Spot Price ($/oz)', 'Gold-to-Silver Ratio', 'Central Bank Holdings', 'Mining Supply']
   },
 
   // Mutual Funds

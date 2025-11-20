@@ -30,67 +30,67 @@ export function PlayerStats({ player, isCurrentPlayer, onSellAsset }: PlayerStat
   const Icon = getPlayerIcon(player.icon);
   
   return (
-    <Card className={`p-3 ${isCurrentPlayer ? 'ring-2 ring-blue-500' : ''}`}>
-      <div className="flex items-center gap-2 mb-3">
+    <Card className={`p-2.5 ${isCurrentPlayer ? 'ring-2 ring-[#03a9f4] shadow-lg' : 'shadow-md'} bg-gradient-to-br from-white to-gray-50`}>
+      <div className="flex items-center gap-2 mb-2.5">
         <div 
-          className="w-8 h-8 rounded-full border-2 border-white shadow-md flex items-center justify-center text-white"
+          className="w-7 h-7 rounded-full shadow-md flex items-center justify-center text-white"
           style={{ backgroundColor: player.color }}
         >
-          <Icon className="w-4 h-4" />
+          <Icon className="w-3.5 h-3.5" />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <h3 className="text-sm truncate">{player.name}</h3>
+          <div className="flex items-center gap-1.5">
+            <h3 className="text-xs truncate text-gray-900">{player.name}</h3>
             {isCurrentPlayer && (
-              <Badge variant="default" className="text-[10px] px-1 py-0">Turn</Badge>
+              <Badge variant="default" className="text-[9px] px-1 py-0 bg-[#03a9f4]">Turn</Badge>
             )}
           </div>
-          <p className="text-xs text-gray-600">Pos {player.position}</p>
+          <p className="text-[10px] text-gray-600">Pos {player.position}</p>
         </div>
       </div>
 
-      <div className="space-y-2">
-        <div className="flex items-center justify-between px-2 py-1 bg-green-50 rounded">
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between px-1.5 py-1 bg-[#c8e6c9] rounded">
           <div className="flex items-center gap-1">
-            <Wallet className="w-3 h-3 text-green-600" />
-            <span className="text-xs">Cash</span>
+            <Wallet className="w-3 h-3 text-[#1a7f5c]" />
+            <span className="text-[10px] text-gray-800">Cash</span>
           </div>
-          <span className="text-xs text-green-700">${player.cash.toLocaleString()}</span>
+          <span className="text-[10px] text-[#1a7f5c]">${player.cash.toLocaleString()}</span>
         </div>
 
-        <div className="flex items-center justify-between px-2 py-1 bg-blue-50 rounded">
+        <div className="flex items-center justify-between px-1.5 py-1 bg-[#b3e5fc] rounded">
           <div className="flex items-center gap-1">
-            <TrendingUp className="w-3 h-3 text-blue-600" />
-            <span className="text-xs">Worth</span>
+            <TrendingUp className="w-3 h-3 text-[#03a9f4]" />
+            <span className="text-[10px] text-gray-800">Worth</span>
           </div>
-          <span className="text-xs text-blue-700">${player.netWorth.toLocaleString()}</span>
+          <span className="text-[10px] text-[#03a9f4]">${player.netWorth.toLocaleString()}</span>
         </div>
 
-        <div className="px-2 py-1 bg-gray-50 rounded">
-          <p className="text-[10px] text-gray-600 truncate">{player.assets.length} assets</p>
+        <div className="px-1.5 py-1 bg-[#fff9c4] rounded">
+          <p className="text-[10px] text-gray-700">{player.assets.length} assets</p>
         </div>
 
         {/* Assets List */}
         {player.assets.length > 0 && (
-          <div className="mt-2">
-            <p className="text-[10px] text-gray-500 mb-1 px-1">Portfolio</p>
-            <ScrollArea className="h-[180px]">
+          <div className="mt-1.5">
+            <p className="text-[9px] text-gray-600 mb-1 px-1">Portfolio</p>
+            <ScrollArea className="h-[160px]">
               <div className="space-y-1">
                 {player.assets.map((asset) => (
                   <div 
                     key={asset.purchaseId || asset.id} 
-                    className="px-2 py-1.5 bg-white rounded border border-gray-200 text-xs"
+                    className="px-1.5 py-1 bg-white rounded border border-gray-200 text-xs shadow-sm"
                   >
                     <div className="flex items-start justify-between gap-1">
                       <div className="flex-1 min-w-0">
-                        <p className="truncate text-gray-900">{asset.name}</p>
-                        <p className="text-[10px] text-gray-500">${asset.currentPrice}</p>
+                        <p className="truncate text-gray-900 text-[10px]">{asset.name}</p>
+                        <p className="text-[9px] text-[#1a7f5c]">${asset.currentPrice}</p>
                       </div>
                       {isCurrentPlayer && onSellAsset && (
                         <Button 
                           size="sm"
                           variant="outline"
-                          className="h-6 px-2 text-[10px]"
+                          className="h-5 px-1.5 text-[9px] bg-[#ff5722] hover:bg-[#d84315] text-white border-none"
                           onClick={() => onSellAsset(asset)}
                         >
                           Sell

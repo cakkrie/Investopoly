@@ -9,17 +9,18 @@ interface BoardSpaceProps {
 }
 
 const assetTypeColors = {
-  bond: 'bg-blue-100 border-blue-400',
-  etf: 'bg-purple-100 border-purple-400',
-  stock: 'bg-green-100 border-green-400',
-  crypto: 'bg-orange-100 border-orange-400',
-  'mutual-fund': 'bg-indigo-100 border-indigo-400',
+  bond: 'bg-blue-50 border-[#03a9f4]',
+  etf: 'bg-red-50 border-[#c62828]',
+  stock: 'bg-green-50 border-[#1a7f5c]',
+  crypto: 'bg-orange-50 border-[#ff9800]',
+  'mutual-fund': 'bg-cyan-50 border-[#00bcd4]',
+  commodity: 'bg-amber-50 border-[#ffb700]',
 };
 
 const riskTextColors = {
-  low: 'text-green-700 bg-green-100',
-  medium: 'text-yellow-700 bg-yellow-100',
-  high: 'text-red-700 bg-red-100',
+  low: 'text-white bg-[#1a7f5c]',
+  medium: 'text-white bg-[#ffc107]',
+  high: 'text-white bg-[#ff5722]',
 };
 
 export function BoardSpace({ space, players, onSpaceClick }: BoardSpaceProps) {
@@ -28,9 +29,9 @@ export function BoardSpace({ space, players, onSpaceClick }: BoardSpaceProps) {
   const getSpaceContent = () => {
     if (space.type === 'corner') {
       return (
-        <div className="h-full flex flex-col items-center justify-center p-2 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
+        <div className="h-full flex flex-col items-center justify-center p-2 bg-[#1a7f5c] text-white">
           <div className="text-center">
-            <p className="text-xs uppercase tracking-wider">{space.name}</p>
+            <p className="text-sm font-semibold uppercase tracking-wider">{space.name}</p>
           </div>
         </div>
       );
@@ -50,7 +51,7 @@ export function BoardSpace({ space, players, onSpaceClick }: BoardSpaceProps) {
         >
           {/* Asset name at top */}
           <div className="px-1.5 pt-1">
-            <p className="text-xs uppercase tracking-tight text-center">{space.asset.name}</p>
+            <p className="text-xs uppercase tracking-tight text-center font-medium">{space.asset.name}</p>
           </div>
           
           {/* Spacer */}
@@ -58,7 +59,7 @@ export function BoardSpace({ space, players, onSpaceClick }: BoardSpaceProps) {
           
           {/* Price and return rate in bottom-right */}
           <div className="absolute bottom-1 right-1 text-right">
-            <p className="text-sm">${space.asset.currentPrice}</p>
+            <p className="text-sm font-semibold">${space.asset.currentPrice}</p>
             <p className="text-[10px] text-gray-600">{returnRate}%</p>
           </div>
           
@@ -72,7 +73,7 @@ export function BoardSpace({ space, players, onSpaceClick }: BoardSpaceProps) {
           {/* Risk label in bottom-left corner */}
           <div className="absolute bottom-0 left-0">
             <span className={cn(
-              "text-[8px] px-1 py-0.5 rounded-tr uppercase",
+              "text-[9px] px-2 py-1 pl-1.5 font-bold uppercase",
               riskTextColors[space.asset.riskLevel]
             )}>
               {space.asset.riskLevel}
@@ -84,8 +85,8 @@ export function BoardSpace({ space, players, onSpaceClick }: BoardSpaceProps) {
     
     if (space.type === 'chance') {
       return (
-        <div className="h-full flex items-center justify-center bg-amber-100 border-t-4 border-amber-500">
-          <Zap className="w-4 h-4 text-amber-600" />
+        <div className="h-full flex items-center justify-center bg-[#ffc107]">
+          <Zap className="w-5 h-5 text-orange-800" />
         </div>
       );
     }
@@ -100,9 +101,9 @@ export function BoardSpace({ space, players, onSpaceClick }: BoardSpaceProps) {
     
     if (space.type === 'tax') {
       return (
-        <div className="h-full flex flex-col items-center justify-center bg-gray-200 border-t-4 border-gray-500 p-1">
-          <DollarSign className="w-4 h-4 text-gray-700" />
-          <p className="text-[9px] text-center">{space.name}</p>
+        <div className="h-full flex flex-col items-center justify-center bg-[#03a9f4] p-1">
+          <DollarSign className="w-5 h-5 text-white" />
+          <p className="text-[9px] text-center text-white font-medium">{space.name}</p>
         </div>
       );
     }

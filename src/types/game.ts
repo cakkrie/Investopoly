@@ -1,5 +1,5 @@
-export type AssetType = 'bond' | 'etf' | 'stock' | 'crypto' | 'mutual-fund';
-export type MarketPhase = 'bull' | 'bear' | 'stagnation' | 'recession';
+export type AssetType = 'bond' | 'etf' | 'stock' | 'crypto' | 'mutual-fund' | 'commodity';
+export type MarketPhase = 'bull' | 'bear';
 export type SpaceType = 'asset' | 'event' | 'chance' | 'corner' | 'tax';
 
 export interface Asset {
@@ -13,6 +13,7 @@ export interface Asset {
   riskLevel: 'low' | 'medium' | 'high';
   description: string;
   purchaseId?: string; // Unique ID for each purchase instance
+  isInverse?: boolean; // Flag for inverse ETFs that move opposite to market
 }
 
 export interface BoardSpace {
@@ -40,5 +41,5 @@ export interface GameState {
   marketPhase: MarketPhase;
   round: number;
   players: Player[];
-  dice: [number, number];
+  dice: number;
 }
